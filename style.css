@@ -1,0 +1,382 @@
+/*
+Theme Name: GadgetPLUS Theme
+Author: Bronzy
+Version: 1.0
+Description: Tema personalizată pentru site-ul GadgetPLUS.
+*/
+
+body{
+    font-family: 'Orbitron', sans-serif;
+    background: #fff; /* fundal alb */
+}
+
+/*////////////////////////////header/////////////////////////*/
+header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 50px; 
+    background: #fff; 
+}
+
+.custom-logo {
+    margin-top: 5px;
+    max-width: 150px;
+    height: auto;
+}
+
+.main-navigation {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 12px 30px;
+    background: #fff;                 
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25); 
+}
+
+.main-navigation a {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 5px;
+    transition: color 0.3s ease;
+}
+
+.main-navigation a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(33, 134, 124);
+    transition: width 0.3s ease;
+}
+
+.main-navigation a:hover {
+    color: rgb(33, 134, 124); 
+    transform: translateY(-5px) scale(1.02);
+    transition: 0.3s ease;
+}
+
+.main-navigation a:hover::after {
+    width: 100%;
+}
+
+/* meniu dropdown */
+.dropdown{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.dropdown-arrow{
+    margin-left:5px;
+    font-size: 10rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu{
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    min-width: 160px;
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background: rgb(33, 134, 124);
+    color: #fff;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+/* Sidebar mobil */
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .main-navigation {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+    }
+
+    .info-boxes {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .post-thumb img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .homepage {
+        padding: 10px;
+    }
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 100%;
+    background: #fff;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    transition: left 0.3s ease;
+    padding: 20px;
+    z-index: 9999;
+}
+
+.mobile-menu.active {
+    left: 0;
+}
+
+.mobile-menu a {
+    display: block;
+    margin: 15px 0;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+/*/////////////////////////////homepage/////////////////////////*/
+.homepage {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.hero {
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,1);
+    padding: 30px;
+    border-radius: 10px; 
+    margin: 20px auto;
+    max-width: 1000px;
+    color: #333;
+}
+
+.hero:hover{
+    transform: translateY(-5px) scale(1.02);
+    transition: 0.3s ease;
+    color: rgb(33, 134, 124);
+}
+
+.latest-posts {
+    margin-top: 50px;
+}
+
+.latest-posts h2 {
+    margin-bottom: 20px;
+    color:#333;
+}
+
+.post {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.post-thumb img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+.post h3 {
+    margin-top: 15px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.post h3:hover {
+    color: rgb(33, 134, 124);
+}
+
+/* Secțiunea cu cele 3 casete */
+.info-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 40px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+/* Casetă individuală */
+.info-boxes .box {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 180px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.info-boxes .box h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    transition: opacity 0.3s ease;
+}
+
+.info-boxes .box .hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(33, 134, 124);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.info-boxes .box:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.info-boxes .box:hover h3 {
+    opacity: 0;
+}
+
+.info-boxes .box:hover .hover-text {
+    opacity: 1;
+}
+
+/*carduri postari*/
+.post-card{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.2) 0px 7px 29px 0px;
+    transition: 0.3s ease;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.post-card:hover{
+    transform: translateY(-5px) scale(1.02);
+    transition: 0.3s ease;
+    color: rgb(33, 134, 124);
+}
+
+/*/////////////////////////////footer/////////////////////////*/
+.site-footer {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+}
+
+.site-footer p {
+    margin: 0 0 10px 0;
+    color: #555;
+}
+
+.footer-nav a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: rgb(33, 134, 124);
+}
+
+/*/////////////scroll bar///////////////////*/
+body {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(33,134,124,0) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(33,134,124,0);
+    border-radius: 8px;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+body:hover ::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:active {
+    background-color: rgba(33,134,124,0.8);
+}
+
+body:hover {
+    scrollbar-color: rgba(33,134,124,0.8) transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    will-change: background-color;
+}
+
+/* Bara de progres */
+#scroll-progress {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: rgb(33, 134, 124);
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+}
